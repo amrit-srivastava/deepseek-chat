@@ -58,39 +58,6 @@ async function askDeepseek(prompt: string): Promise<string> {
 
 
 
-// async function askDeepseek(prompt: string): Promise<string> {
-//     try {
-//         console.log("🔄 Sending request to Ollama server:", prompt);
-
-//         // Sending request to the running Ollama server (without spawning a new process)
-//         const response = await axios.post('http://127.0.0.1:11434/api/generate', {
-//             model: "deepseek-r1:1.5b",  // Ensure this matches the locally installed model
-//             prompt: prompt,
-//             stream: false
-//         }, { timeout: 15000 }); // 15-second timeout to prevent hanging requests
-
-//         console.log("✅ Response from Ollama:", response.data);
-
-//         // Validate and return the response
-//         if (response.data && response.data.response) {
-//             return response.data.response.trim();  // Ensure no extra whitespace
-//         } else {
-//             return "⚠️ No valid response from Deepseek.";
-//         }
-//     } catch (error) {
-//         console.error("❌ Error communicating with Ollama:", error);
-
-//         // Improved error handling
-//         if (axios.isAxiosError(error)) {
-//             return `⚠️ API Error: ${error.response?.data?.message || error.message}`;
-//         } else if (error instanceof Error) {
-//             return `⚠️ Unexpected Error: ${error.message}`;
-//         } else {
-//             return "⚠️ An unknown error occurred while connecting to Deepseek.";
-//         }
-//     }
-// }
-
 
 function getWebviewContent() {
     return `
